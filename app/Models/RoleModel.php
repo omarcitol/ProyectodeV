@@ -8,13 +8,13 @@ use CodeIgniter\Model;
 
 class RoleModel extends Model
 {
-    protected $table = 'roles'; //nombre de la tabla
-    protected $primarykey = 'id'; //lalve primaria
-    protected $allowedFields = ['rolename']; //campos que se usaran
+    protected $table = 'roles_personas'; //nombre de la tabla
+    protected $primaryKey = 'id_Rolespersonas'; //lalve primaria
+    protected $allowedFields = ['nombre_rolesPersonas']; //campos que se usaran
 
     public function getRoleByName($roleName)
     {
-        return $this->where('role_name', $roleName)->first();
+        return $this->where('nombre_rolesPersonas', $roleName)->first();
     }
 
 

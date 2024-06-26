@@ -32,7 +32,7 @@
 
 </head>
 <body class="m-0 vh-100 row justify-content-center align-item-center">
-    <backgr
+    
     <section>
     <div class="container mt-5 pt-5">
         <div class="row">
@@ -52,11 +52,11 @@
                         <i class="fa-solid fa-user"></i>
                         </div>
                         <div class="form-group">
-                        <input type="text" name="email" id="" class="form-control my-4 py-2" placeholder="Correo" value="<?= set_value('email') ?>">
+                        <input type="text" name="correo_personas" id="" class="form-control my-4 py-2" placeholder="Correo" value="<?= set_value('email') ?>">
                         <span class="text-danger"><?= isset($validation) ? display_error($validation, 'email') : '' ?></span>
                         </div>
                         <div class="form-group">
-                        <input type="text" name="password" id="" class="form-control my-4 py-2" placeholder="Contraseña" value="<?= set_value('password') ?>">
+                        <input type="text" name="clave" id="" class="form-control my-4 py-2" placeholder="Contraseña" value="<?= set_value('password') ?>">
                         <span class="text-danger"><?= isset($validation) ? display_error($validation, 'password') : '' ?></span>
                         </div>
                        

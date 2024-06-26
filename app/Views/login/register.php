@@ -11,18 +11,12 @@
     <script src="<?php echo base_url()?>/public/js/bootstrapjs/bootstrap.bundle.min.js"></script>
 
     <style>
-
         body{
-         
          background-color: #0cbccc;
-
         }
-
         .card-body {
             box-shadow: 3px 4px 41px -1px rgba(0,0,0,0.55);
-
         }
-
     </style>
 
 </head>
@@ -49,27 +43,39 @@
                         <div class="text-center mt-2">
                         <i class="fa-solid fa-user"></i>
                         </div>
+
                         <div class="form-group">
-                            <input type="text" name="name" id="" class="form-control my-4 py-2" placeholder="Nombre" value="<?= set_value('name'); ?>">
-                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'name') : ''?></span>
+                            <input type="text" name="nombres_personas" id="" class="form-control my-4 py-2" placeholder="Nombre" value="<?= set_value('nombres_personas'); ?>">
+                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'nombres_personas') : ''?></span>
                         </div>
                         <div>
-                            <input type="text" name="surname" id="" class="form-control my-4 py-2" placeholder="Apellido" value="<?= set_value('surname'); ?>">
-                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'surname') : ''?></span>
+                            <input type="text" name="apellidos_personas" id="" class="form-control my-4 py-2" placeholder="Apellido" value="<?= set_value('apellidos_personas'); ?>">
+                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'apellidos_personas') : ''?></span>
                         </div>
                         <div>
-                            <input type="text" name="email" id="" class="form-control my-4 py-2" placeholder="Correo" value="<?= set_value('email'); ?>">
-                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'email') : ''?></span>
+                            <input type="text" name="cedula_personas" id="" class="form-control my-4 py-2" placeholder="Cedula" value="<?= set_value('cedula_personas'); ?>">
+                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'cedula_personas') : ''?></span>
                         </div>
                         <div>
-                        <input type="password" name="password" id="" class="form-control my-4 py-2" placeholder="Contraseña">
-                        
-                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'password') : ''?></span>
+                            <input type="text" name="operadora_personas" id="" class="form-control my-4 py-2" placeholder="operadora" value="<?= set_value('operadora_personas'); ?>">
+                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'operadora_personas') : ''?></span>
+                        </div>
+                        <div>
+                            <input type="text" name="telefono_personas" id="" class="form-control my-4 py-2" placeholder="telefono" value="<?= set_value('telefono_personas'); ?>">
+                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'telefono_personas') : ''?></span>
+                        </div>
+                        <div>
+                            <input type="text" name="correo_personas" id="" class="form-control my-4 py-2" placeholder="Correo" value="<?= set_value('correo_personas'); ?>">
+                            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'correo_personas') : ''?></span>
+                        </div>
+                        <div>
+                        <input type="password" name="clave" id="" class="form-control my-4 py-2" placeholder="Contraseña">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'clave') : ''?></span>
                         </div>
 
                         <div>
-                        <input type="password" name="cpassword" id="" class="form-control my-4 py-2" placeholder="Confirmar Contraseña">
-                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'cpassword') : ''?></span>
+                        <input type="password" name="cclave" id="" class="form-control my-4 py-2" placeholder="Confirmar Contraseña">
+                        <span class="text-danger"><?= isset($validation) ? display_error($validation, 'cclave') : ''?></span>
                         </div>
 
                        <div class="text-center mt-3">

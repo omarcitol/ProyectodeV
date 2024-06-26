@@ -15,6 +15,7 @@ $routes->get('/contacto', 'iniciocontrolador::contacto');
 $routes->get('/login', 'login::index');
 $routes->get('/login', 'login::guardar');
 $routes->get('/register', 'register::index');
+$routes->get('/save', 'register::save');
 $routes->post('/save', 'register::save');
 $routes->post('/check', 'login::check');
 

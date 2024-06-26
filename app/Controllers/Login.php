@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Libraries\PasswordHash;
-use App\Models\UserModel;
+use App\Models\personasModel;
 use App\Models\RoleModel;
 use Config\App;
 
@@ -27,15 +27,15 @@ class Login extends BaseController
 
         $validation = $this->validate([
 
-            'email'=>[
-                'rules'=>'required|valid_email|is_not_unique[users.email]',
+            'correo_personas'=>[
+                'rules'=>'required|valid_email|is_not_unique[personas.correo_personas]',
                 'errors'=>[
                     'required'=>'Se necesita el correo',
                     'valid_email'=>'Ingrese un correo valido',
                     'is_not_unique'=>'Este correo no se encuentra registrado'
                 ]
                 ],
-                 'password'=>[
+                 'clave'=>[
                     'rules'=>'required|min_length[5]|max_length[12]',
                     'errors'=>[
                         'required'=>'se necesita la contraseña',
@@ -49,27 +49,26 @@ class Login extends BaseController
             return view('login/login',['validation'=>$this->validator]);
         }else{
             
-            $email = $this->request->getPost('email');
-            $password = $this->request->getPost('password');
+            $email = $this->request->getPost('correo_personas');
+            $password = $this->request->getPost('clave');
 
-            $usersModel = new \App\Models\UserModel();
-            $user_info = $usersModel->where('email', $email)->first();
-            $check_password = PasswordHash::check($password, $user_info['password']);   
+            $usersModel = new \App\Models\personasModel();
+            $user_info = $usersModel->where('correo_personas', $email)->first();
+            $check_password = PasswordHash::check($password, $user_info['clave']);   
 
             if(!$check_password){
                 session()->setFlashdata('fail', 'Contraseña incorrecta');
                 return redirect()->to('login')->withInput();
             }else{
                 
-               $user_id = $user_info['id'];
-               
+               $user_id = $user_info['cedula_personas'];
+
                 /*session()->set('Usuario logueado', $user_id);
                 return redirect()->to('alumnos'); */
-
                 // Obtener el rol del usuario desde la tabla roles
-            $role_id = $user_info['role_id'];
+            $rol_personas = $user_info['rol_personas'];
             $rolesModel = new RoleModel(); // Suponiendo que tienes un modelo para la tabla roles
-            $role_info = $rolesModel->find($role_id);
+            $role_info = $rolesModel->find($rol_personas);
 
             // Redireccionar a diferentes vistas dependiendo del rol
            /* switch ($role_info['role_name']) {
@@ -86,8 +85,8 @@ class Login extends BaseController
                     return redirect()->to('login');
                     break; */
 
-                    if ($role_info !== null && array_key_exists('role_name', $role_info)) {
-                        switch ($role_info['role_name']) {
+                    if ($role_info !== null && array_key_exists('nombre_rolesPersonas', $role_info)) {
+                        switch ($role_info['nombre_rolesPersonas']) {
                             case 'Profesor':
                                 session()->set('usuario Logueado', $user_id);
                                 return redirect()->to('profesor');
